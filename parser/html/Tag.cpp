@@ -1,4 +1,4 @@
-#pragma ONCE
+#pragma once
 #include<iostream>
 #include<map>
 #include<vector>
@@ -15,7 +15,10 @@ class Tag{
         std::vector<Tag> children;
         Tag * parent;
 
-        Tag(tagName){
+        Tag(){
+
+        }
+        Tag(std::string tagName){
             this->tagName = boost::algorithm::to_lower_copy(tagName);
             this->originalTagName = tagName;
             this->attributeString = "";
@@ -24,7 +27,19 @@ class Tag{
         }
 
 
-        Tag(const Tag $t2){
+        Tag & operator=(const Tag & t2) {
+            this->tagName = t2.tagName;
+            this->originalTagName = t2.originalTagName;
+            this->attributeString = t2.attributeString;
+            this->attributes = t2.attributes;
+            this->content = t2.content;
+            this->children = t2.children;
+            this->parent = t2.parent;
+            return *this;
+        }
+
+
+        Tag(const Tag & t2){
             this->tagName = t2.tagName;
             this->originalTagName = t2.originalTagName;
             this->attributeString = t2.attributeString;
@@ -46,20 +61,20 @@ class Tag{
             this->attributes[key] =  value;
         }
         
-        void hasAttribute(std::string key){
-            std::map::iterator it = attributes.find(key);
+        bool hasAttribute(std::string key){
+            std::map<std::string, std::string>::iterator it = attributes.find(key);
             if (it != attributes.end()) return true;
             return false;
         }
 
-        void getAttribute(std::string key){
+        std::string getAttribute(std::string key){
             if(!hasAttribute(key)) return "undefined";
             return attributes.at(key);
         }  
 
         void parseAttributes(){
             int i = 0;
-            for(; i < attributeString.length; i++){
+            for(; i < attributeString.length(); i++){
                 if(attributeString.at(i) != ' '){
                     //Begin building attribute name
                     std::string attributeName = "";
@@ -104,16 +119,18 @@ class Tag{
 
         Tag mergeTextTags(){
             std::string newTextContent = "";
-            std::vector newChildren;
-            for(int i = 0; i < children.length(); i++){
+            std::vector<Tag> newChildren;
+            for(int i = 0; i < children.size(); i++){
                 if(children[i].tagName == "kthulu-text"){
                     newTextContent = children[i].content + " ";
-                    for(; i < children.length() && children[i].tagName == "kthulu-text"; i++){
+                    for(; i < children.size() && children[i].tagName == "kthulu-text"; i++){
                         newTextContent += children[i].content + " ";
                     }
                     Tag newTag("kthulu-text");
                     newTag.content = newTextContent;
-                    newChildren.push_back(newTag);
+                    if(newTag.content.find_first_not_of(' ') != std::string::npos ){
+                        newChildren.push_back(newTag);
+                    }
                     i--;
                 }
                 else{
@@ -122,6 +139,31 @@ class Tag{
             }
             children = newChildren;
             return *this;
+        }
+
+        std::string prettyPrint(int indent){
+            std::string indentStr = "";
+            for(int i = 0; i < indent; i++){
+                indentStr += "   ";
+            }
+            std::string output;
+            output += indentStr + "Tag: " + tagName + "\n";
+
+            if(attributes.size() != 0){
+                output += indentStr + "attributes: " + "\n";
+                for(auto const &x : attributes){
+                    output += indentStr + "\t" + x.first + " : " + x.second + "\n";
+                }
+
+            }
+            
+            if(children.size() != 0) output + indentStr + "children: " + "\n";
+            for(int i = 0 ; i < children.size(); i++){
+                output += children[i].prettyPrint(indent + 1);
+            }
+
+            if(content != "") output += indentStr + "content: "  + content + "\n";
+            return output;
         }
         
     

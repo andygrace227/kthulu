@@ -1,5 +1,4 @@
-#pragma ONCE
-#include"Block.cpp"
+#pragma once
 #include<vector>
 #include<iostream>
 #include<algorithm>
@@ -16,7 +15,7 @@ class HTMLParser{
 
         HTMLParser(std::string h){
             this->HTML = h;
-            this->root("root");
+            root = Tag("root");
         }
 
         void formBlocks(){
@@ -30,8 +29,11 @@ class HTMLParser{
                     Block b(builder);
                     blocks.push_back(b);
                     builder = "";
+                    builder += c;
                 }
             }
+            //std::cout << "formed blocks" << std::endl;
+
         }
 
         void mergeBlocksInTags(){
@@ -39,19 +41,26 @@ class HTMLParser{
             std::vector<Block> newBlocks;
             int i = 0;
             for(; i < blocks.size(); i++){
+                ////std::cout << "processing " << blocks[i].content << std::endl;
                 if(blocks[i].beginningChar == '<'){
 
                     if(blocks[i].content.substr(0,4) == "<!--" ){
                         //In a comment. Go until we find a block with --> at the end
                         std::string newContent = blocks[i].content.substr(0, blocks[i].content.length() - 1);
+                        
                         int j = i + 1;
-                        for(; j < blocks.size(); j++){
+                        bool endFound = false;
+                        for(; j < blocks.size() && endFound == false; j++){
+                            ////std::cout << blocks[j].content << std::endl;
                             newContent += blocks[j].content.substr(0, blocks[j].content.length() - 1 );
-                            if(blocks[j].content.substr(blocks[j].content.length() - 4, 3) == "-->"){
+
+                            if(newContent.substr(newContent.length() - 4, 3 ) == "-->"){
+                               
                                 Block b(newContent);
                                 newBlocks.push_back(b);
-                                i = j;
+                                i = j - 1;
                                 mergedBlocks.push_back(newBlocks.size() - 1);
+                                endFound = true;
                             }
                         }
                     }                    
@@ -61,7 +70,8 @@ class HTMLParser{
                         std::string newContent = blocks[i].content.substr(0, blocks[i].content.length() - 1);
                         int j = i + 1;
                         char inQuoteChar = ' ';
-                        for(; j < blocks.size(); j++){
+                        bool endFound = false;
+                        for(; j < blocks.size() && endFound == false ; j++){
                             //handle attributes with quotes which may contain HTML tags.
                             if(blocks[j].beginningChar == '"' || blocks[j].beginningChar == '\''){
                                 if(inQuoteChar == ' ') inQuoteChar = blocks[j].beginningChar;
@@ -70,10 +80,11 @@ class HTMLParser{
 
                             if( (inQuoteChar == ' ' && blocks[j].beginningChar == '>') || j == blocks.size() - 1 ){
                                 //End the tag, push a new block on.
-                                Block b(newContent);
+                                Block b(newContent + ">");
                                 newBlocks.push_back(b);
-                                i = j;
+                                i = j - 1;
                                 mergedBlocks.push_back(newBlocks.size() - 1);
+                                endFound = true;
                             }
                             else{
                                 newContent += blocks[j].content.substr(0, blocks[j].content.length() - 1);
@@ -85,7 +96,11 @@ class HTMLParser{
                     newBlocks.push_back(blocks[i]);
                 }
             }
-
+            //std::cout << "merged blocks" << std::endl;
+            for(int i = 0; i < newBlocks.size(); i++){
+                //std::cout << newBlocks[i].content << std::endl;
+            }
+            //std::cout << "end of blocks" << std::endl;
             blocks = newBlocks;
         }
 
@@ -138,8 +153,8 @@ class HTMLParser{
             //We use a "stack" of tag pointers to keep track of the parent element
             //The parent element is used to find the end tag.
 
-            std::vector<Tag*> elementStack;
-            elementStack.push_back(&root);
+            std::vector< Tag * > elementStack;
+            elementStack.push_back(&this->root);
 
             
             for(int i = 0; i < blocks.size(); i++){
@@ -148,30 +163,31 @@ class HTMLParser{
                     //Do some analysis on this tag.
                     std::string tagName;
                     int j = 1;
-                    for(; j < blocks[i].content.length && blocks[i].content.at[j] != ' ' && && blocks[i].content.at[j] != '>'; j++){
-                        tagName += blocks[i].content.at[j];
+                    for(; j < blocks[i].content.length() && blocks[i].content.at(j) != ' ' && blocks[i].content.at(j) != '>'; j++){
+                        tagName += blocks[i].content.at(j);
                     }
+                    //std::cout << "processing a " << tagName << "tag" << std::endl;
 
                     //Great! We have a tag name. Let's see if it's an opening tag or a closing tag.
-                    if(tagName.substr(1,1) == "/"){
+                    if(tagName.substr(0,1) == "/"){
                         //Closing tag. See if our tag name matches the parent.
                         //If it does, perfect.
                         tagName = tagName.substr(1,tagName.length() - 1);
                         tagName = boost::algorithm::to_lower_copy(tagName);
                         if(elementStack.back()->tagName == tagName){
-                            elementStack.pop();
+                            elementStack.pop_back();
                         }
                         //Otherwise, look through the next elements in the array, and make that the new parent.
                         else if(std::find(std::begin(optionalClosedTags), std::end(optionalClosedTags), tagName) != std::end(optionalClosedTags)){
                             int numberToPop = 0;
-                            int i = elementStack.size()
+                            int i = elementStack.size();
                             for(; i > -1 && elementStack[i]->tagName != tagName; i++){
                                 numberToPop++;
                             }
                             if(i != -1){
                                 //We found an element and it makes sense to pop it off.
                                 for(i = 0; i < numberToPop; i++){
-                                    elementStack.pop();
+                                    elementStack.pop_back();
                                 }
                             }
                         }
@@ -182,19 +198,22 @@ class HTMLParser{
                         //Opening tag. Make the tag and populate the attributes.
 
                         Tag t(tagName);
-                        if(blocks[i].content.at[j] != '>'){
+                        if(blocks[i].content.at(j) != '>'){
                             t.attributeString = blocks[i].content.substr(tagName.length(), blocks[i].content.length() - tagName.length() - 1);
                             t.parseAttributes();
                         }
                         //See if this tag is script or css, which shouldn't be converted into text nodes.
                         if(t.tagName == "script" || t.tagName == "style"){
                             //Populate the content of this tag.
-                            std::string endTag = "</" + t.tagName + ">"
+                            std::string endTag = "</" + t.tagName;
                             std::string content = "";
-                            for(int k = i + 1; k < blocks.size() && blocks[k].content.substr(blocks[k].content.length() - 10, 9) != endTag; k++){
+
+                            int k = i + 1;
+                            ////std::cout << blocks[k].content;
+                            for(; k < blocks.size() && blocks[k].content.find(endTag) != std::string::npos; k++){
                                 content += blocks[k].content.substr(0, blocks[k].content.length() - 1); 
                             }
-                            i = k + 1;
+                            i = k+1;
                             t.content = content;
                             elementStack.back()->appendChild(t);
 
@@ -212,11 +231,11 @@ class HTMLParser{
                                 //Tag is likely a sibling.
                                 //This is a proof of concept so we're going to assume everything else is all good,
                                 //and only support one level of siblingness.
-                                elementStack.pop();
+                                elementStack.pop_back();
                             }
                             //Tag is definitely a child now
                             elementStack.back()->appendChild(t);
-                            elementStack.push_back(elementStack.back()->children[elementStack.back()->children.size() - 1]);
+                            elementStack.push_back(&(elementStack.back()->children[ elementStack.back()->children.size() - 1 ]));
                         }
                     }
                 }
@@ -227,11 +246,12 @@ class HTMLParser{
                     elementStack.back()->appendChild(t);
                 }
             }
+            //std::cout << "created tags" << std::endl;
         }
 
 
-        mergeTextTags(){
-            root.mergeTextTags();
+        void mergeTextTags(){
+            root = root.mergeTextTags();
         }
 
 

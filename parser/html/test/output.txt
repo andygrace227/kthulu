@@ -1,0 +1,362 @@
+made it here
+Tag: root
+   Tag: html
+   attributes: 
+   	l : 
+   	lang : ="en"
+      Tag: head
+         Tag: title
+            Tag: kthulu-text
+            content: Pricing Pricing example for Bootstrap 
+         Tag: kthulu-text
+         content: 
+
+ 
+
+   
+   
+      Tag: kthulu-text
+      content: 
+
+ 
+
+   
+      Tag: body
+         Tag: kthulu-text
+         content: 
+
+ 
+
+     
+         Tag: div
+         attributes: 
+         	align-items-center : 
+         	bg-white : 
+         	border-bottom : 
+         	box-shadow" : 
+         	class : ="d-flex
+         	flex-column : 
+         	flex-md-row : 
+         	mb-3 : 
+         	p-3 : 
+         	px-md-4 : 
+         	v : 
+            Tag: kthulu-text
+            content: 
+
+ 
+
+       
+            Tag: a
+            attributes: 
+            	a : 
+            	btn-outline-primary" : 
+            	class : ="btn
+            	href : ="#"
+               Tag: kthulu-text
+               content: Sign Sign up 
+            Tag: kthulu-text
+            content: 
+ 
+     
+         Tag: kthulu-text
+         content: 
+
+ 
+
+     
+         Tag: div
+         attributes: 
+         	class : ="pricing-header
+         	mx-auto : 
+         	pb-md-4 : 
+         	pt-md-5 : 
+         	px-3 : 
+         	py-3 : 
+         	text-center" : 
+         	v : 
+            Tag: kthulu-text
+            content: 
+ 
+       
+            Tag: h1
+            attributes: 
+            	1 : 
+            	class : ="display-4"
+               Tag: kthulu-text
+               content: Pricing Pricing 
+            Tag: kthulu-text
+            content: 
+ 
+      
+     
+         Tag: kthulu-text
+         content: 
+
+ 
+
+     
+         Tag: div
+         attributes: 
+         	class : ="container"
+         	v : 
+            Tag: kthulu-text
+            content: 
+ 
+       
+            Tag: div
+            attributes: 
+            	class : ="card-deck
+            	mb-3 : 
+            	text-center" : 
+            	v : 
+               Tag: kthulu-text
+               content: 
+ 
+         
+               Tag: div
+               attributes: 
+               	box-shadow" : 
+               	class : ="card
+               	mb-4 : 
+               	v : 
+                  Tag: kthulu-text
+                  content: 
+ 
+          Some text here
+          
+         
+               Tag: kthulu-text
+               content: 
+ 
+         
+               Tag: div
+               attributes: 
+               	box-shadow" : 
+               	class : ="card
+               	mb-4 : 
+               	v : 
+                  Tag: kthulu-text
+                  content: 
+ 
+          
+          Other text here
+         
+               Tag: kthulu-text
+               content: 
+ 
+         
+               Tag: div
+               attributes: 
+               	box-shadow" : 
+               	class : ="card
+               	mb-4 : 
+               	v : 
+                  Tag: kthulu-text
+                  content: 
+ 
+          And some here too
+         
+               Tag: kthulu-text
+               content: 
+ 
+       
+            Tag: kthulu-text
+            content: 
+
+ 
+
+       
+            Tag: footer
+            attributes: 
+            	border-top" : 
+            	class : ="pt-4
+            	my-md-5 : 
+            	pt-md-5 : 
+            	r : 
+               Tag: kthulu-text
+               content: 
+ 
+         
+               Tag: div
+               attributes: 
+               	class : ="row"
+               	v : 
+                  Tag: kthulu-text
+                  content: 
+ 
+           
+                  Tag: div
+                  attributes: 
+                  	class : ="col-12
+                  	col-md" : 
+                  	v : 
+                     Tag: kthulu-text
+                     content: 
+ 
+            
+             
+                     Tag: small
+                     attributes: 
+                     	class : ="d-block
+                     	l : 
+                     	mb-3 : 
+                     	text-muted" : 
+                        Tag: kthulu-text
+                        content: &copy; &copy; 2017-2018 
+                     Tag: kthulu-text
+                     content: 
+ 
+           
+                  Tag: kthulu-text
+                  content: 
+ 
+           
+                  Tag: div
+                  attributes: 
+                  	class : ="col-6
+                  	col-md" : 
+                  	v : 
+                     Tag: kthulu-text
+                     content: 
+ 
+            
+             
+           
+                  Tag: kthulu-text
+                  content: 
+ 
+           
+                  Tag: div
+                  attributes: 
+                  	class : ="col-6
+                  	col-md" : 
+                  	v : 
+                     Tag: kthulu-text
+                     content: 
+ 
+            
+             
+           
+                  Tag: kthulu-text
+                  content: 
+ 
+           
+                  Tag: div
+                  attributes: 
+                  	class : ="col-6
+                  	col-md" : 
+                  	v : 
+                     Tag: kthulu-text
+                     content: 
+
+ 
+
+           
+                  Tag: kthulu-text
+                  content: 
+ 
+         
+               Tag: kthulu-text
+               content: 
+ 
+       
+            Tag: kthulu-text
+            content: 
+ 
+     
+         Tag: kthulu-text
+         content: 
+
+
+ 
+
+
+     
+         Tag: !--
+         attributes: 
+         	- : 
+         	--> : 
+         	Bootstrap : 
+         	JavaScript
+ : ==================================================
+         	core : 
+         Tag: kthulu-text
+         content: 
+ 
+     
+         Tag: !--
+         attributes: 
+         	- : 
+         	--> : 
+         	Placed : 
+         	at : 
+         	document : 
+         	end : 
+         	faster : 
+         	load : 
+         	of : 
+         	pages : 
+         	so : 
+         	the : 
+         Tag: kthulu-text
+         content: 
+ 
+     
+         Tag: script
+         attributes: 
+         	crossorigin : ="anonymous"
+         	integrity : ="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+         	src : ="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+         	t : 
+         Tag: kthulu-text
+         content: 
+ 
+     
+         Tag: script
+         Tag: kthulu-text
+         content: document.write( document.write(  
+         Tag: script
+         attributes: 
+         	src : ="../../assets/js/vendor/jquery-slim.min.js"
+         	t : 
+         Tag: kthulu-text
+         content:   ) 
+     
+         Tag: script
+         attributes: 
+         	src : ="../../assets/js/vendor/popper.min.js"
+         	t : 
+         Tag: kthulu-text
+         content: 
+ 
+     
+         Tag: script
+         attributes: 
+         	src : ="../../dist/js/bootstrap.min.js"
+         	t : 
+         Tag: kthulu-text
+         content: 
+ 
+     
+         Tag: script
+         attributes: 
+         	src : ="../../assets/js/vendor/holder.min.js"
+         	t : 
+         Tag: kthulu-text
+         content: 
+ 
+     
+         Tag: script
+         Tag: kthulu-text
+         content:      Holder.addTheme( thumb , {
+        bg:  #55595c ,
+        fg:  #eceeef ,
+        text:  Thumbnail 
+      });
+     
+   
+      Tag: kthulu-text
+      content: 
+ 
+ 
