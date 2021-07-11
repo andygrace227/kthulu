@@ -6,6 +6,8 @@
 *.lo
 *.o
 *.obj
+/.vscode
+/.VSCodeCounter
 
 # Precompiled Headers
 *.gch
@@ -33,3 +35,4 @@
 
 # MacOS Things
 *.DS_STORE
+/*.dYSM
