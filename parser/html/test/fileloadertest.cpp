@@ -18,8 +18,6 @@ int main(int argc, char* argv[]){
     str.assign((std::istreambuf_iterator<char>(t)),
             std::istreambuf_iterator<char>());
 
-    std::cout << "made it here" << std::endl;
-
 
     //make ab parser and test it out.
     HTMLParser p(str);

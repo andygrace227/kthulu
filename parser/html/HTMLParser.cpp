@@ -24,7 +24,9 @@ class HTMLParser{
             std::string builder = "";
             for(; i < HTML.length(); i++){
                 char c = HTML.at(i);
-                builder += c;
+
+                    builder += c;
+
                 if(std::find(std::begin(delimiters), std::end(delimiters), c) != std::end(delimiters) || i == HTML.length() - 1){
                     Block b(builder);
                     blocks.push_back(b);
@@ -199,7 +201,7 @@ class HTMLParser{
 
                         Tag t(tagName);
                         if(blocks[i].content.at(j) != '>'){
-                            t.attributeString = blocks[i].content.substr(tagName.length(), blocks[i].content.length() - tagName.length() - 1);
+                            t.attributeString = blocks[i].content.substr(tagName.length() + 1, blocks[i].content.length() - tagName.length() - 2);
                             t.parseAttributes();
                         }
                         //See if this tag is script or css, which shouldn't be converted into text nodes.
@@ -209,15 +211,40 @@ class HTMLParser{
                             std::string content = "";
 
                             int k = i + 1;
-                            ////std::cout << blocks[k].content;
-                            for(; k < blocks.size() && blocks[k].content.find(endTag) != std::string::npos; k++){
-                                content += blocks[k].content.substr(0, blocks[k].content.length() - 1); 
+                            //std::cout << blocks[k].content;
+                            for(; k < blocks.size() && blocks[k].content.find(endTag) == std::string::npos; k++){
+                                if( k == i + 1){
+                                    std::string str;
+                                    if(blocks[k].content.substr(0,1) == ">")
+                                        str = blocks[k].content.substr(1, blocks[k].content.length() - 1);
+                                    if(str.substr(str.length() - 1,1) == "<")
+                                        str = str.substr(0, str.length() - 1);
+
+                                }
+                                else{
+                                    content += blocks[k].content.substr(0, blocks[k].content.length() - 1);
+                                } 
                             }
                             i = k+1;
                             t.content = content;
                             elementStack.back()->appendChild(t);
 
                         }
+                        //See if the tag is a comment element
+                        else if(t.tagName.substr(0,3) == "!--"){
+                            t.tagName = "!";
+                            t.content = t.attributeString;
+                            t.attributes.clear();
+                            t.attributeString = "";
+                            elementStack.back()->appendChild(t);
+                        }
+
+                        //It could also be a DOCTYPE element
+                        else if(t.tagName.substr(0,8) == "!doctype"){
+                            t.tagName = "!doctype";
+                            elementStack.back()->appendChild(t);
+                        }
+
                         //It's a normal HTML element
                         //Decide if this tag could have children
                         else if(std::find(std::begin(noChildTags), std::end(noChildTags), t.tagName) != std::end(noChildTags)){

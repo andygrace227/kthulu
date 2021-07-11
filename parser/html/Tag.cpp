@@ -89,6 +89,7 @@ class Tag{
                     }
                     if(i < attributeString.length() && attributeString.at(i) == '='){
                         //begin building attribute value.
+                        i++;
                         while(i < attributeString.length() && attributeString.at(i) == ' '){
                             i++;
                         }
@@ -122,12 +123,17 @@ class Tag{
             std::vector<Tag> newChildren;
             for(int i = 0; i < children.size(); i++){
                 if(children[i].tagName == "kthulu-text"){
-                    newTextContent = children[i].content + " ";
+                    newTextContent = "";
                     for(; i < children.size() && children[i].tagName == "kthulu-text"; i++){
                         newTextContent += children[i].content + " ";
                     }
                     Tag newTag("kthulu-text");
+                    //Trim whitespace
+                    newTextContent.erase(std::remove(newTextContent.begin(), newTextContent.end(), '\t'), newTextContent.end());
+                    newTextContent.erase(std::remove(newTextContent.begin(), newTextContent.end(), '\n'), newTextContent.end());
+                    newTextContent = trimWhiteSpace(newTextContent);
                     newTag.content = newTextContent;
+                    
                     if(newTag.content.find_first_not_of(' ') != std::string::npos ){
                         newChildren.push_back(newTag);
                     }
@@ -148,7 +154,7 @@ class Tag{
             }
             std::string output;
             output += indentStr + "Tag: " + tagName + "\n";
-
+            
             if(attributes.size() != 0){
                 output += indentStr + "attributes: " + "\n";
                 for(auto const &x : attributes){
@@ -157,12 +163,23 @@ class Tag{
 
             }
             
+            /*
+            output += indentStr + "attributeStr: " + attributeString + "\n";
+            */
             if(children.size() != 0) output + indentStr + "children: " + "\n";
             for(int i = 0 ; i < children.size(); i++){
                 output += children[i].prettyPrint(indent + 1);
             }
 
             if(content != "") output += indentStr + "content: "  + content + "\n";
+            return output + "\n";
+        }
+
+
+        std::string trimWhiteSpace(std::string input){
+            std::string output;  
+            unique_copy (input.begin(), input.end(), std::back_insert_iterator<std::string>(output),
+                                     [](char a,char b){ return std::isspace(a) && std::isspace(b);});  
             return output;
         }
         

@@ -1,362 +1,582 @@
-made it here
 Tag: root
+   Tag: !doctype
+   attributes: 
+   	html : 
+
    Tag: html
    attributes: 
-   	l : 
-   	lang : ="en"
+   	lang : en
       Tag: head
+         Tag: meta
+         attributes: 
+         	charset : utf-8
+
+         Tag: meta
+         attributes: 
+         	content : width=device-width, initial-scale=1, shrink-to-fit=no
+         	name : viewport
+
+         Tag: meta
+         attributes: 
+         	content : 
+         	name : description
+
+         Tag: meta
+         attributes: 
+         	content : 
+         	name : author
+
+         Tag: link
+         attributes: 
+         	href : /docs/4.0/assets/img/favicons/favicon.ico
+         	rel : icon
+
          Tag: title
             Tag: kthulu-text
-            content: Pricing Pricing example for Bootstrap 
-         Tag: kthulu-text
-         content: 
+            content: Pricing example for Bootstrap 
 
- 
 
-   
-   
-      Tag: kthulu-text
-      content: 
+         Tag: link
+         attributes: 
+         	href : https://getbootstrap.com/docs/4.0/examples/pricing/
+         	rel : canonical
 
- 
+         Tag: !
+         content:  Bootstrap core CSS -->
 
-   
+         Tag: link
+         attributes: 
+         	href : ../../dist/css/bootstrap.min.css
+         	rel : stylesheet
+
+         Tag: !
+         content:  Custom styles for this template -->
+
+         Tag: link
+         attributes: 
+         	href : pricing.css
+         	rel : stylesheet
+
+
       Tag: body
-         Tag: kthulu-text
-         content: 
-
- 
-
-     
          Tag: div
          attributes: 
-         	align-items-center : 
-         	bg-white : 
-         	border-bottom : 
-         	box-shadow" : 
-         	class : ="d-flex
-         	flex-column : 
-         	flex-md-row : 
-         	mb-3 : 
-         	p-3 : 
-         	px-md-4 : 
-         	v : 
-            Tag: kthulu-text
-            content: 
+         	class : d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow
+            Tag: h5
+            attributes: 
+            	class : my-0 mr-md-auto font-weight-normal
+               Tag: kthulu-text
+               content: Company name 
 
- 
 
-       
+            Tag: nav
+            attributes: 
+            	class : my-2 my-md-0 mr-md-3
+               Tag: a
+               attributes: 
+               	class : p-2 text-dark
+               	href : #
+                  Tag: kthulu-text
+                  content: Features 
+
+
+               Tag: a
+               attributes: 
+               	class : p-2 text-dark
+               	href : #
+                  Tag: kthulu-text
+                  content: Enterprise 
+
+
+               Tag: a
+               attributes: 
+               	class : p-2 text-dark
+               	href : #
+                  Tag: kthulu-text
+                  content: Support 
+
+
+               Tag: a
+               attributes: 
+               	class : p-2 text-dark
+               	href : #
+                  Tag: kthulu-text
+                  content: Pricing 
+
+
+
             Tag: a
             attributes: 
-            	a : 
-            	btn-outline-primary" : 
-            	class : ="btn
-            	href : ="#"
+            	class : btn btn-outline-primary
+            	href : #
                Tag: kthulu-text
-               content: Sign Sign up 
-            Tag: kthulu-text
-            content: 
- 
-     
-         Tag: kthulu-text
-         content: 
+               content: Sign up 
 
- 
 
-     
+
          Tag: div
          attributes: 
-         	class : ="pricing-header
-         	mx-auto : 
-         	pb-md-4 : 
-         	pt-md-5 : 
-         	px-3 : 
-         	py-3 : 
-         	text-center" : 
-         	v : 
-            Tag: kthulu-text
-            content: 
- 
-       
+         	class : pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center
             Tag: h1
             attributes: 
-            	1 : 
-            	class : ="display-4"
+            	class : display-4
                Tag: kthulu-text
-               content: Pricing Pricing 
-            Tag: kthulu-text
-            content: 
- 
-      
-     
-         Tag: kthulu-text
-         content: 
+               content: Pricing 
 
- 
 
-     
+            Tag: p
+            attributes: 
+            	class : lead
+               Tag: kthulu-text
+               content: Quickly build an effective pricing table for your potential customers with this Bootstrap example. It s built with default Bootstrap components and utilities with little customization. 
+
+
+
          Tag: div
          attributes: 
-         	class : ="container"
-         	v : 
-            Tag: kthulu-text
-            content: 
- 
-       
+         	class : container
             Tag: div
             attributes: 
-            	class : ="card-deck
-            	mb-3 : 
-            	text-center" : 
-            	v : 
-               Tag: kthulu-text
-               content: 
- 
-         
+            	class : card-deck mb-3 text-center
                Tag: div
                attributes: 
-               	box-shadow" : 
-               	class : ="card
-               	mb-4 : 
-               	v : 
-                  Tag: kthulu-text
-                  content: 
- 
-          Some text here
-          
-         
-               Tag: kthulu-text
-               content: 
- 
-         
-               Tag: div
-               attributes: 
-               	box-shadow" : 
-               	class : ="card
-               	mb-4 : 
-               	v : 
-                  Tag: kthulu-text
-                  content: 
- 
-          
-          Other text here
-         
-               Tag: kthulu-text
-               content: 
- 
-         
-               Tag: div
-               attributes: 
-               	box-shadow" : 
-               	class : ="card
-               	mb-4 : 
-               	v : 
-                  Tag: kthulu-text
-                  content: 
- 
-          And some here too
-         
-               Tag: kthulu-text
-               content: 
- 
-       
-            Tag: kthulu-text
-            content: 
+               	class : card mb-4 box-shadow
+                  Tag: div
+                  attributes: 
+                  	class : card-header
+                     Tag: h4
+                     attributes: 
+                     	class : my-0 font-weight-normal
+                        Tag: kthulu-text
+                        content: Free 
 
- 
 
-       
+
+                  Tag: div
+                  attributes: 
+                  	class : card-body
+                     Tag: h1
+                     attributes: 
+                     	class : card-title pricing-card-title
+                        Tag: kthulu-text
+                        content: $0 
+
+                        Tag: small
+                        attributes: 
+                        	class : text-muted
+                           Tag: kthulu-text
+                           content: / mo 
+
+
+
+                     Tag: ul
+                     attributes: 
+                     	class : list-unstyled mt-3 mb-4
+                        Tag: li
+                           Tag: kthulu-text
+                           content: 10 users included 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: 2 GB of storage 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: Email support 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: Help center access 
+
+
+
+                     Tag: button
+                     attributes: 
+                     	class : btn btn-lg btn-block btn-outline-primary
+                     	type : button
+                        Tag: kthulu-text
+                        content: Sign up for free 
+
+
+
+
+               Tag: div
+               attributes: 
+               	class : card mb-4 box-shadow
+                  Tag: div
+                  attributes: 
+                  	class : card-header
+                     Tag: h4
+                     attributes: 
+                     	class : my-0 font-weight-normal
+                        Tag: kthulu-text
+                        content: Pro 
+
+
+
+                  Tag: div
+                  attributes: 
+                  	class : card-body
+                     Tag: h1
+                     attributes: 
+                     	class : card-title pricing-card-title
+                        Tag: kthulu-text
+                        content: $15 
+
+                        Tag: small
+                        attributes: 
+                        	class : text-muted
+                           Tag: kthulu-text
+                           content: / mo 
+
+
+
+                     Tag: ul
+                     attributes: 
+                     	class : list-unstyled mt-3 mb-4
+                        Tag: li
+                           Tag: kthulu-text
+                           content: 20 users included 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: 10 GB of storage 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: Priority email support 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: Help center access 
+
+
+
+                     Tag: button
+                     attributes: 
+                     	class : btn btn-lg btn-block btn-primary
+                     	type : button
+                        Tag: kthulu-text
+                        content: Get started 
+
+
+
+
+               Tag: div
+               attributes: 
+               	class : card mb-4 box-shadow
+                  Tag: div
+                  attributes: 
+                  	class : card-header
+                     Tag: h4
+                     attributes: 
+                     	class : my-0 font-weight-normal
+                        Tag: kthulu-text
+                        content: Enterprise 
+
+
+
+                  Tag: div
+                  attributes: 
+                  	class : card-body
+                     Tag: h1
+                     attributes: 
+                     	class : card-title pricing-card-title
+                        Tag: kthulu-text
+                        content: $29 
+
+                        Tag: small
+                        attributes: 
+                        	class : text-muted
+                           Tag: kthulu-text
+                           content: / mo 
+
+
+
+                     Tag: ul
+                     attributes: 
+                     	class : list-unstyled mt-3 mb-4
+                        Tag: li
+                           Tag: kthulu-text
+                           content: 30 users included 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: 15 GB of storage 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: Phone and email support 
+
+
+                        Tag: li
+                           Tag: kthulu-text
+                           content: Help center access 
+
+
+
+                     Tag: button
+                     attributes: 
+                     	class : btn btn-lg btn-block btn-primary
+                     	type : button
+                        Tag: kthulu-text
+                        content: Contact us 
+
+
+
+
+
             Tag: footer
             attributes: 
-            	border-top" : 
-            	class : ="pt-4
-            	my-md-5 : 
-            	pt-md-5 : 
-            	r : 
-               Tag: kthulu-text
-               content: 
- 
-         
+            	class : pt-4 my-md-5 pt-md-5 border-top
                Tag: div
                attributes: 
-               	class : ="row"
-               	v : 
-                  Tag: kthulu-text
-                  content: 
- 
-           
+               	class : row
                   Tag: div
                   attributes: 
-                  	class : ="col-12
-                  	col-md" : 
-                  	v : 
-                     Tag: kthulu-text
-                     content: 
- 
-            
-             
+                  	class : col-12 col-md
+                     Tag: img
+                     attributes: 
+                     	alt : 
+                     	class : mb-2
+                     	height : 24
+                     	src : https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg
+                     	width : 24
+
                      Tag: small
                      attributes: 
-                     	class : ="d-block
-                     	l : 
-                     	mb-3 : 
-                     	text-muted" : 
+                     	class : d-block mb-3 text-muted
                         Tag: kthulu-text
-                        content: &copy; &copy; 2017-2018 
-                     Tag: kthulu-text
-                     content: 
- 
-           
-                  Tag: kthulu-text
-                  content: 
- 
-           
+                        content: &copy; 2017-2018 
+
+
+
                   Tag: div
                   attributes: 
-                  	class : ="col-6
-                  	col-md" : 
-                  	v : 
-                     Tag: kthulu-text
-                     content: 
- 
-            
-             
-           
-                  Tag: kthulu-text
-                  content: 
- 
-           
+                  	class : col-6 col-md
+                     Tag: h5
+                        Tag: kthulu-text
+                        content: Features 
+
+
+                     Tag: ul
+                     attributes: 
+                     	class : list-unstyled text-small
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Cool stuff 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Random feature 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Team feature 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Stuff for developers 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Another one 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Last time 
+
+
+
+
+
                   Tag: div
                   attributes: 
-                  	class : ="col-6
-                  	col-md" : 
-                  	v : 
-                     Tag: kthulu-text
-                     content: 
- 
-            
-             
-           
-                  Tag: kthulu-text
-                  content: 
- 
-           
+                  	class : col-6 col-md
+                     Tag: h5
+                        Tag: kthulu-text
+                        content: Resources 
+
+
+                     Tag: ul
+                     attributes: 
+                     	class : list-unstyled text-small
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Resource 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Resource name 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Another resource 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Final resource 
+
+
+
+
+
                   Tag: div
                   attributes: 
-                  	class : ="col-6
-                  	col-md" : 
-                  	v : 
-                     Tag: kthulu-text
-                     content: 
-
- 
-
-           
-                  Tag: kthulu-text
-                  content: 
- 
-         
-               Tag: kthulu-text
-               content: 
- 
-       
-            Tag: kthulu-text
-            content: 
- 
-     
-         Tag: kthulu-text
-         content: 
+                  	class : col-6 col-md
+                     Tag: h5
+                        Tag: kthulu-text
+                        content: About 
 
 
- 
+                     Tag: ul
+                     attributes: 
+                     	class : list-unstyled text-small
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Team 
 
 
-     
-         Tag: !--
-         attributes: 
-         	- : 
-         	--> : 
-         	Bootstrap : 
-         	JavaScript
- : ==================================================
-         	core : 
-         Tag: kthulu-text
-         content: 
- 
-     
-         Tag: !--
-         attributes: 
-         	- : 
-         	--> : 
-         	Placed : 
-         	at : 
-         	document : 
-         	end : 
-         	faster : 
-         	load : 
-         	of : 
-         	pages : 
-         	so : 
-         	the : 
-         Tag: kthulu-text
-         content: 
- 
-     
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Locations 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Privacy 
+
+
+
+                        Tag: li
+                           Tag: a
+                           attributes: 
+                           	class : text-muted
+                           	href : #
+                              Tag: kthulu-text
+                              content: Terms 
+
+
+
+
+
+
+
+
+         Tag: !
+         content:  Bootstrap core JavaScript
+    ================================================== -->
+
+         Tag: !
+         content:  Placed at the end of the document so the pages load faster -->
+
          Tag: script
          attributes: 
-         	crossorigin : ="anonymous"
-         	integrity : ="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-         	src : ="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-         	t : 
-         Tag: kthulu-text
-         content: 
- 
-     
+         	crossorigin : anonymous
+         	integrity : sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN
+         	src : https://code.jquery.com/jquery-3.2.1.slim.min.js
+
          Tag: script
-         Tag: kthulu-text
-         content: document.write( document.write(  
+         content:  || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+
          Tag: script
          attributes: 
-         	src : ="../../assets/js/vendor/jquery-slim.min.js"
-         	t : 
-         Tag: kthulu-text
-         content:   ) 
-     
+         	src : ../../assets/js/vendor/popper.min.js
+
          Tag: script
          attributes: 
-         	src : ="../../assets/js/vendor/popper.min.js"
-         	t : 
-         Tag: kthulu-text
-         content: 
- 
-     
+         	src : ../../dist/js/bootstrap.min.js
+
          Tag: script
          attributes: 
-         	src : ="../../dist/js/bootstrap.min.js"
-         	t : 
-         Tag: kthulu-text
-         content: 
- 
-     
+         	src : ../../assets/js/vendor/holder.min.js
+
          Tag: script
-         attributes: 
-         	src : ="../../assets/js/vendor/holder.min.js"
-         	t : 
-         Tag: kthulu-text
-         content: 
- 
-     
-         Tag: script
-         Tag: kthulu-text
-         content:      Holder.addTheme( thumb , {
-        bg:  #55595c ,
-        fg:  #eceeef ,
-        text:  Thumbnail 
+         content:       Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
       });
-     
-   
-      Tag: kthulu-text
-      content: 
- 
- 
+    
+
+
+
+
